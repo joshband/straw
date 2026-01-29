@@ -44,4 +44,3 @@
 #include "server/straw_AutomationServer.h"
 #include "helpers/straw_ComponentHelpers.h"
 #include "values/straw_VariantConverter.h"
-#include "center/straw_TestCenter.h"

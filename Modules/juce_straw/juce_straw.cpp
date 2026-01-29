@@ -25,4 +25,3 @@
 #include "scripting/straw_ScriptBindings.cpp"
 #include "helpers/straw_ComponentHelpers.cpp"
 #include "endpoints/straw_ComponentEndpoints.cpp"
-#include "center/straw_TestCenter.cpp"
