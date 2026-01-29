@@ -116,10 +116,15 @@ juce::MemoryBlock readHttpPayload (juce::StreamingSocket& connection)
     while (true)
     {
         auto numBytesRead = connection.read (data, juce::numElementsInArray (data), false);
-        if (numBytesRead <= 0)
-            break;
+        if (numBytesRead > 0)
+        {
+            payload.append (data, static_cast<size_t> (numBytesRead));
+            continue;
+        }
 
-        payload.append (data, static_cast<size_t> (numBytesRead));
+        auto ready = connection.waitUntilReady (true, 50);
+        if (ready <= 0)
+            break;
     }
 
     return payload;
