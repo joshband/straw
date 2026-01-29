@@ -210,7 +210,7 @@ void clickComponent (juce::Component* component,
 
     int clickTimeMilliseconds = juce::jmax(0, static_cast<int> (timeBetweenMouseDownAndUp.inMilliseconds() - elapsedMouseDownTime.inMilliseconds()));
     if (clickTimeMilliseconds > 0)
-        juce::MessageManager::getInstance()->runDispatchLoopUntil(clickTimeMilliseconds);
+        juce::Thread::sleep(clickTimeMilliseconds);
 
     juce::MouseEvent ev2
     {
@@ -236,7 +236,7 @@ void clickComponent (juce::Component* component,
     if (finishCallback != nullptr)
         finishCallback();
 
-    juce::MessageManager::getInstance()->runDispatchLoopUntil(1);
+    juce::Thread::sleep(1);
 }
 
 //=================================================================================================
